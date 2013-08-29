@@ -29,7 +29,7 @@ except IOError:
 
 pygame.mixer.music.load('cctv.mp3')
 while not pygame.mixer.music.get_busy():
-	pygame.mixer.music.play(start=MUSIC_START_POS)
+	pygame.mixer.music.play()#start=MUSIC_START_POS)
 
 while pygame.mixer.music.get_busy():
 

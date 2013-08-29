@@ -1,0 +1,3 @@
+*.pyc
+/rtmidi_python.so
+/rtmidi-python
