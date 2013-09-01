@@ -1,4 +1,5 @@
 import sys
+import signal
 
 from launchpad import Launchpad
 import pygame
@@ -26,6 +27,12 @@ try:
 except IOError:
 	print "no Launchpad, no demo, dude."
 	sys.exit(1)
+
+def sigint_handler(signal, frame):
+	lp.reset()
+	sys.exit(0)
+
+signal.signal(signal.SIGINT, sigint_handler)
 
 pygame.mixer.music.load('cctv.mp3')
 while not pygame.mixer.music.get_busy():
