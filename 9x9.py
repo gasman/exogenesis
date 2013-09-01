@@ -1,8 +1,9 @@
 import sys
 import signal
 
-from launchpad import Launchpad
 import pygame
+
+from democode.launchpad import Launchpad
 
 FREQ = 44100   # same as audio CD
 BITSIZE = -16  # unsigned 16 bit
@@ -34,7 +35,7 @@ def sigint_handler(signal, frame):
 
 signal.signal(signal.SIGINT, sigint_handler)
 
-pygame.mixer.music.load('cctv.mp3')
+pygame.mixer.music.load('demodata/cctv.mp3')
 while not pygame.mixer.music.get_busy():
 	pygame.mixer.music.play(start=MUSIC_START_POS)
 
