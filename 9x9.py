@@ -37,7 +37,10 @@ signal.signal(signal.SIGINT, sigint_handler)
 
 pygame.mixer.music.load('demodata/cctv.mp3')
 while not pygame.mixer.music.get_busy():
-	pygame.mixer.music.play()#start=MUSIC_START_POS)
+	if MUSIC_START_POS > 0.0:
+		pygame.mixer.music.play()
+	else:
+		pygame.mixer.music.play(start=MUSIC_START_POS)
 
 while pygame.mixer.music.get_busy():
 
