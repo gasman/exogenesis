@@ -1,3 +1,5 @@
+# Driver for translating screen bitmaps into Launchpad MIDI commands
+
 import rtmidi_python as rtmidi
 from time import sleep
 
