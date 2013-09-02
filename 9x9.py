@@ -9,6 +9,7 @@ from democode.launchpad import Launchpad
 
 from democode.null_scene import NullScene
 from democode.ticker import TickerScene
+from democode.life import LifeScene
 
 FREQ = 44100   # same as audio CD
 BITSIZE = -16  # unsigned 16 bit
@@ -17,7 +18,7 @@ BUFFER = 1024  # audio buffer size in no. of samples
 
 LATENCY = 0  # ms
 
-MUSIC_START_POS = 20 # 120.0  # seconds
+MUSIC_START_POS = 75  # seconds
 MUSIC_LEADIN_TIME = 160.0  # ms before first beat
 MUSIC_BPM = 340
 MUSIC_BEATS_PER_PATTERN = 64
@@ -50,6 +51,7 @@ while not pygame.mixer.music.get_busy():
 		pygame.mixer.music.play()
 
 null_scene = NullScene(lp)
+life_scene = LifeScene(lp, 7)
 red_ticker_scene = TickerScene(lp, 0x03)
 yellow_ticker_scene = TickerScene(lp, 0x33)
 
@@ -61,8 +63,8 @@ SCENES = [
 	yellow_ticker_scene,  # 4
 	red_ticker_scene,  # 5
 	red_ticker_scene,  # 6
-	null_scene,  # 7
-	null_scene,  # 8
+	life_scene,  # 7
+	life_scene,  # 8
 	null_scene,  # 9
 	null_scene,  # 10
 	null_scene,  # 11
