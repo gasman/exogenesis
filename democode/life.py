@@ -1,3 +1,5 @@
+import math
+
 def evolve(grid0):
 	grid1 = []
 
@@ -33,6 +35,8 @@ class LifeScene(object):
 		10,0,0,11,0,0,12,0,0,0,0,0,0,0,0,0,
 		0,0,0,0,0,0,0,0,0,13,14,0,15,0,16,17
 	]
+
+	WAVE = [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x02, 0x02, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]
 
 	def __init__(self, lp, start_pattern):
 		self.lp = lp
@@ -77,6 +81,13 @@ class LifeScene(object):
 
 		for x in range(0, 9):
 			for y in range(0, 9):
-				self.lp.screen[y][x] = brightness if grid[y][x] else 0x00
+				if grid[y][x]:
+					self.lp.screen[y][x] = brightness
+				else:
+					if 14 < my_beat < 110:
+						t = beat + 1 + y * 2
+						self.lp.screen[y][x] = LifeScene.WAVE[int(x + 8 * math.sin(t * math.pi / 16))]
+					else:
+						self.lp.screen[y][x] = 0x00
 
 		self.lp.commit()

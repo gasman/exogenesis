@@ -21,6 +21,9 @@ class Launchpad(object):
 		# Reset the Launchpad (also sets grid mapping mode to X-Y)
 		self.midi_out.send_message([0xb0, 0, 0])
 
+		# set duty cycle to 1/8 to give higher contrast with lower brightnesses
+		self.midi_out.send_message([0xb0, 0x1e, 0x05])
+
 		self.double_buffer_command = 0x31
 
 		self.screen = [[0x00] * 9 for i in range(0, 9)]
