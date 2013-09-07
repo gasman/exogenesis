@@ -17,6 +17,7 @@ from democode.molecule import MoleculeScene
 from democode.recede import RecedeScene
 from democode.dna import DNAScene
 from democode.division import DivisionScene
+from democode.perlin import PerlinScene
 
 FREQ = 44100   # same as audio CD
 BITSIZE = -16  # unsigned 16 bit
@@ -68,7 +69,7 @@ SCENES = [
 	DrumScene(lp, background=False),  # 0
 	DrumScene(lp, background=True),  # 1
 	MoleculeScene(lp),  # 2
-	yellow_ticker_scene,  # 3
+	PerlinScene(lp),  # 3
 	yellow_ticker_scene,  # 4
 	red_ticker_scene,  # 5
 	red_ticker_scene,  # 6
