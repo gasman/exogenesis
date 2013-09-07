@@ -13,6 +13,7 @@ from democode.life import LifeScene
 from democode.plasma import PlasmaScene
 from democode.drums import DrumScene
 from democode.nova import NovaScene
+from democode.molecule import MoleculeScene
 
 FREQ = 44100   # same as audio CD
 BITSIZE = -16  # unsigned 16 bit
@@ -61,11 +62,12 @@ plasma_scene = PlasmaScene(lp)
 drum_without_bg = DrumScene(lp, False)
 drum_with_bg = DrumScene(lp, True)
 nova_scene = NovaScene(lp)
+molecule_scene = MoleculeScene(lp)
 
 SCENES = [
 	drum_without_bg,  # 0
 	drum_with_bg,  # 1
-	null_scene,  # 2
+	molecule_scene,  # 2
 	yellow_ticker_scene,  # 3
 	yellow_ticker_scene,  # 4
 	red_ticker_scene,  # 5

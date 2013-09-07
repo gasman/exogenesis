@@ -1,8 +1,10 @@
+from democode.antialias import Antialiaser
 import math
 
 class DrumScene(object):
 	def __init__(self, lp, background = False):
 		self.lp = lp
+		self.aa = Antialiaser(lp)
 		self.background = background
 
 	SEQ = [
@@ -11,29 +13,22 @@ class DrumScene(object):
 	]
 
 	def tick(self, pattern, beat):
+		self.aa.clear()
 		if self.background:
-			r = -math.sin(math.pi * beat / 16.0) * 8
+			r = -math.sin(math.pi * beat / 16.0) * 12
 
-			for y in range(0, 9):
-				for x in range(0, 9):
+			for y in range(0, 18):
+				for x in range(0, 18):
 					if r > 0:
-						dist = math.sqrt(x * x + (8 - y) * (8 - y))
+						dist = math.sqrt(x * x + (16 - y) * (16 - y))
 						if dist < r:
-							self.lp.screen[y][x] = 0x10 * (int(4 * dist / r) ^ 3)
-						else:
-							self.lp.screen[y][x] = 0x00
+							self.aa.screen[y][x] = (0, 1 - dist / r)
 					elif r < 0:
-						dist = math.sqrt((8 - x) * (8 - x) + y * y)
+						dist = math.sqrt((16 - x) * (16 - x) + y * y)
 						if dist < -r:
-							self.lp.screen[y][x] = int(4 * dist / -r) ^ 3
-						else:
-							self.lp.screen[y][x] = 0x00
-					else:
-						self.lp.screen[y][x] = 0x00
-		else:
-			for y in range(0, 9):
-				for x in range(0, 9):
-					self.lp.screen[y][x] = 0x00
+							self.aa.screen[y][x] = (1 - dist / -r, 0)
+
+		self.aa.render(commit=False)
 
 		if pattern >= 0:
 			ix = DrumScene.SEQ[int(beat) % 32]
