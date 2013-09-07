@@ -18,6 +18,8 @@ from democode.recede import RecedeScene
 from democode.dna import DNAScene
 from democode.division import DivisionScene
 from democode.perlin import PerlinScene
+from democode.comet import CometScene, CircleCometScene
+from democode.iris import IrisScene
 
 FREQ = 44100   # same as audio CD
 BITSIZE = -16  # unsigned 16 bit
@@ -26,7 +28,7 @@ BUFFER = 1024  # audio buffer size in no. of samples
 
 LATENCY = 0  # ms
 
-MUSIC_START_POS = 0  # seconds
+MUSIC_START_POS = 120  # seconds
 MUSIC_LEADIN_TIME = 160.0  # ms before first beat
 MUSIC_BPM = 340
 MUSIC_BEATS_PER_PATTERN = 64
@@ -64,6 +66,17 @@ red_ticker_scene = TickerScene(lp, 0x03)
 yellow_ticker_scene = TickerScene(lp, 0x33)
 plasma_scene = PlasmaScene(lp)
 
+class DNAThenIris(object):
+	def __init__(self):
+		self.dna_scene = DNAScene(lp, breakup=True)
+		self.iris_scene = IrisScene(lp)
+
+	def tick(self, pattern, beat):
+		if beat < 32:
+			self.dna_scene.tick(pattern, beat)
+		else:
+			self.iris_scene.tick(pattern, beat)
+
 
 SCENES = [
 	DrumScene(lp, background=False),  # 0
@@ -71,13 +84,13 @@ SCENES = [
 	MoleculeScene(lp),  # 2
 	PerlinScene(lp),  # 3
 	yellow_ticker_scene,  # 4
-	red_ticker_scene,  # 5
-	red_ticker_scene,  # 6
+	CometScene(lp),  # 5
+	CircleCometScene(lp),  # 6
 	life_scene,  # 7
 	life_scene,  # 8
 	NovaScene(lp),  # 9
 	DNAScene(lp),  # 10
-	DNAScene(lp, breakup=True),  # 11
+	DNAThenIris(),  # 11
 	DivisionScene(lp),  # 12
 	RecedeScene(lp),  # 13
 ]
