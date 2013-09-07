@@ -54,11 +54,6 @@ def sigint_handler(signal, frame):
 signal.signal(signal.SIGINT, sigint_handler)
 
 pygame.mixer.music.load('demodata/cctv.mp3')
-while not pygame.mixer.music.get_busy():
-	if MUSIC_START_POS > 0.0:
-		pygame.mixer.music.play(start=MUSIC_START_POS)
-	else:
-		pygame.mixer.music.play()
 
 null_scene = NullScene(lp)
 life_scene = LifeScene(lp, 7)
@@ -94,6 +89,12 @@ SCENES = [
 	DivisionScene(lp),  # 12
 	RecedeScene(lp),  # 13
 ]
+
+while not pygame.mixer.music.get_busy():
+	if MUSIC_START_POS > 0.0:
+		pygame.mixer.music.play(start=MUSIC_START_POS)
+	else:
+		pygame.mixer.music.play()
 
 while pygame.mixer.music.get_busy():
 
