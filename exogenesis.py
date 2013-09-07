@@ -16,6 +16,7 @@ from democode.nova import NovaScene
 from democode.molecule import MoleculeScene
 from democode.recede import RecedeScene
 from democode.dna import DNAScene
+from democode.division import DivisionScene
 
 FREQ = 44100   # same as audio CD
 BITSIZE = -16  # unsigned 16 bit
@@ -76,7 +77,7 @@ SCENES = [
 	NovaScene(lp),  # 9
 	DNAScene(lp),  # 10
 	DNAScene(lp, breakup=True),  # 11
-	null_scene,  # 12
+	DivisionScene(lp),  # 12
 	RecedeScene(lp),  # 13
 ]
 
