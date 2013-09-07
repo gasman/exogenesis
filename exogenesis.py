@@ -61,27 +61,23 @@ life_scene = LifeScene(lp, 7)
 red_ticker_scene = TickerScene(lp, 0x03)
 yellow_ticker_scene = TickerScene(lp, 0x33)
 plasma_scene = PlasmaScene(lp)
-drum_without_bg = DrumScene(lp, False)
-drum_with_bg = DrumScene(lp, True)
-nova_scene = NovaScene(lp)
-molecule_scene = MoleculeScene(lp)
-recede_scene = RecedeScene(lp)
+
 
 SCENES = [
-	drum_without_bg,  # 0
-	drum_with_bg,  # 1
-	molecule_scene,  # 2
+	DrumScene(lp, background=False),  # 0
+	DrumScene(lp, background=True),  # 1
+	MoleculeScene(lp),  # 2
 	yellow_ticker_scene,  # 3
 	yellow_ticker_scene,  # 4
 	red_ticker_scene,  # 5
 	red_ticker_scene,  # 6
 	life_scene,  # 7
 	life_scene,  # 8
-	nova_scene,  # 9
+	NovaScene(lp),  # 9
 	DNAScene(lp),  # 10
 	DNAScene(lp, breakup=True),  # 11
 	null_scene,  # 12
-	recede_scene,  # 13
+	RecedeScene(lp),  # 13
 ]
 
 while pygame.mixer.music.get_busy():
