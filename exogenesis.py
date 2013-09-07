@@ -28,7 +28,7 @@ BUFFER = 1024  # audio buffer size in no. of samples
 
 LATENCY = 0  # ms
 
-MUSIC_START_POS = 120  # seconds
+MUSIC_START_POS = 0  # seconds
 MUSIC_LEADIN_TIME = 160.0  # ms before first beat
 MUSIC_BPM = 340
 MUSIC_BEATS_PER_PATTERN = 64
@@ -83,7 +83,7 @@ SCENES = [
 	DrumScene(lp, background=True),  # 1
 	MoleculeScene(lp),  # 2
 	PerlinScene(lp),  # 3
-	yellow_ticker_scene,  # 4
+	PerlinScene(lp, wave=True),  # 4
 	CometScene(lp),  # 5
 	CircleCometScene(lp),  # 6
 	life_scene,  # 7
