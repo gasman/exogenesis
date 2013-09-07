@@ -14,6 +14,7 @@ from democode.plasma import PlasmaScene
 from democode.drums import DrumScene
 from democode.nova import NovaScene
 from democode.molecule import MoleculeScene
+from democode.recede import RecedeScene
 
 FREQ = 44100   # same as audio CD
 BITSIZE = -16  # unsigned 16 bit
@@ -22,7 +23,7 @@ BUFFER = 1024  # audio buffer size in no. of samples
 
 LATENCY = 0  # ms
 
-MUSIC_START_POS = 0  # seconds
+MUSIC_START_POS = 145  # seconds
 MUSIC_LEADIN_TIME = 160.0  # ms before first beat
 MUSIC_BPM = 340
 MUSIC_BEATS_PER_PATTERN = 64
@@ -63,6 +64,7 @@ drum_without_bg = DrumScene(lp, False)
 drum_with_bg = DrumScene(lp, True)
 nova_scene = NovaScene(lp)
 molecule_scene = MoleculeScene(lp)
+recede_scene = RecedeScene(lp)
 
 SCENES = [
 	drum_without_bg,  # 0
@@ -78,7 +80,7 @@ SCENES = [
 	null_scene,  # 10
 	null_scene,  # 11
 	null_scene,  # 12
-	null_scene,  # 13
+	recede_scene,  # 13
 ]
 
 while pygame.mixer.music.get_busy():
