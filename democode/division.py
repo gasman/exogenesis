@@ -58,11 +58,17 @@ class DivisionScene(object):
 		self.cells[3].set_position(c2x + dx, c2y + dy)
 
 
+		if beat < 2:
+			fadeyness = beat / 2  # APPROACHING DEADLINE BUFFYSPEAK SYNDROME
+		else:
+			fadeyness = 1
+
 		for y in range(0, 18):
 			for x in range(0, 18):
-				self.aa.screen[y][x] = reduce(
+				r_out, g_out = reduce(
 					(lambda (r, g), (r1, g1): (r + r1, g + g1)),
 					[cell.colour_at(x, y) for cell in self.cells]
 				)
+				self.aa.screen[y][x] = (r_out * fadeyness, g_out * fadeyness)
 
 		self.aa.render()
