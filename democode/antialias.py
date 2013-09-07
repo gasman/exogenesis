@@ -8,6 +8,10 @@ class Antialiaser(object):
 			for x in range(0, 18):
 				self.screen[y][x] = (0, 0)
 
+	def plot(self, x, y, colour):
+		if 0 <= x < 18 and 0 <= y < 18:
+			self.screen[y][x] = colour
+
 	def render(self, commit=True):
 		for y in range(0, 18, 2):
 			for x in range(0, 18, 2):

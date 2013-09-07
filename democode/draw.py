@@ -16,7 +16,7 @@ def line(screen, x0, y0, x1, y1, colour):
 			for i in range(0, int(dx + 1)):
 				y = y0 + i * grad
 				x = x0 + i
-				if x > 0 and y > 0:
+				if x >= 0 and y >= 0:
 					try:
 						screen[int(y)][int(x)] = colour
 					except IndexError:
@@ -25,7 +25,7 @@ def line(screen, x0, y0, x1, y1, colour):
 			for i in range(int(dx), 1):
 				y = y0 + i * grad
 				x = x0 + i
-				if x > 0 and y > 0:
+				if x >= 0 and y >= 0:
 					try:
 						screen[int(y)][int(x)] = colour
 					except IndexError:
@@ -39,7 +39,7 @@ def line(screen, x0, y0, x1, y1, colour):
 			for i in range(0, int(dy + 1)):
 				x = x0 + i * grad
 				y = y0 + i
-				if x > 0 and y > 0:
+				if x >= 0 and y >= 0:
 					try:
 						screen[int(y)][int(x)] = colour
 					except IndexError:
@@ -48,7 +48,7 @@ def line(screen, x0, y0, x1, y1, colour):
 			for i in range(int(dy), 1):
 				x = x0 + i * grad
 				y = y0 + i
-				if x > 0 and y > 0:
+				if x >= 0 and y >= 0:
 					try:
 						screen[int(y)][int(x)] = colour
 					except IndexError:

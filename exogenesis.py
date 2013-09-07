@@ -15,6 +15,7 @@ from democode.drums import DrumScene
 from democode.nova import NovaScene
 from democode.molecule import MoleculeScene
 from democode.recede import RecedeScene
+from democode.dna import DNAScene
 
 FREQ = 44100   # same as audio CD
 BITSIZE = -16  # unsigned 16 bit
@@ -23,7 +24,7 @@ BUFFER = 1024  # audio buffer size in no. of samples
 
 LATENCY = 0  # ms
 
-MUSIC_START_POS = 145  # seconds
+MUSIC_START_POS = 0  # seconds
 MUSIC_LEADIN_TIME = 160.0  # ms before first beat
 MUSIC_BPM = 340
 MUSIC_BEATS_PER_PATTERN = 64
@@ -77,8 +78,8 @@ SCENES = [
 	life_scene,  # 7
 	life_scene,  # 8
 	nova_scene,  # 9
-	null_scene,  # 10
-	null_scene,  # 11
+	DNAScene(lp),  # 10
+	DNAScene(lp, breakup=True),  # 11
 	null_scene,  # 12
 	recede_scene,  # 13
 ]
