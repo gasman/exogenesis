@@ -1,0 +1,63 @@
+           #####
+          #    #
+         #   # ##         ~ w a v e s i t t e r ~
+        #  #   #
+        # #    #              p r e s e n t s
+        # #  # #
+        # ###  #
+        #     #           ~ E x o g e n e s i s ~
+        # ####
+    ##  #      ##       a demo for Raspberry Pi and
+#  #  # #  #  #  #   Novation Launchpad MIDI controller
+ ##     #   ##
+                         presented at Sundown 2013
+
+Credits
+-------
+Code - Gasman <http://matt.west.co.tt/>
+Music - Hoopshank <http://www.paulturrell.com/>
+
+Instructions:
+-------------
+Unpack on a Raspberry Pi with a standard Raspbian system installed, and run:
+  ./exogenesis.py
+
+
+You can also run the demo on any other system with Python, Pygame and
+rtmidi-python <https://github.com/superquadratic/rtmidi-python> installed.
+(If you do that, you'll probably want to remove the RasPi-specific
+rtmidi_python.so file from the path. Alternatively, see the Github project at
+https://github.com/gasman/exogenesis, which includes scripts for building and
+running the demo within a Vagrant virtual machine.)
+
+
+Wavesitter?
+-----------
+Wavesitter is a new demoscene project formed by Matt "Gasman" Westcott, all
+about creating visuals for existing music tracks by musicians both inside and
+outside the scene. Alternatively, you can think of it as a demo group with
+Gasman as the only permanent member, and an ever-changing roster of guest
+musicians.
+
+I've been fortunate enough to meet and be inspired by musicians of all kinds,
+and occasionally turned their work into a demo, starting in 2008 with
+'Antisocial' in association with ZX Spectrum Orchestra. It's something I want
+to do more of, and so should you. (The demoscene shouldn't be a walled garden -
+there is great music everywhere, waiting for us to bring it to life visually,
+and in return we get outside influences making the scene so much richer.)
+
+When I make those demos, it seems a bit unfair to have them labelled as a
+'Gasman' production. And that's where this new name comes in. There are a few
+reasons behind the name:
+
+* it is, I believe, the direct translation of the German word for budgerigar,
+  'Wellensittich'. If you don't understand what's so great about that, then
+  there's no hope for you.
+* it describes what the project is about, in a way: adopting or 'babysitting'
+  soundtracks (waveforms) and making something new out of them.
+* it sounds sort of catchy, like Squarepusher or Cloudkicker.
+
+      http://wavesitter.com/ (might have some content soon)
+
+                                                gasman 2013-09-08
+                                                Budleigh Salterton, UK
